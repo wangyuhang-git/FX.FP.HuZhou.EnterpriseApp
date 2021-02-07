@@ -1,5 +1,7 @@
 {
   "name": "FX.HuZhou.EnterpriseApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "angular"
 }

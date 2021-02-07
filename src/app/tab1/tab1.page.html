@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Tab 1
+      项目信息列表
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,9 +9,15 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">项目清单</ion-title>
     </ion-toolbar>
   </ion-header>
 
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
+  <ion-list>
+    <ion-item *ngFor="let item of list">
+      <ion-label>{{item.FirstName}}{{item.LastName}}</ion-label>
+    </ion-item>
+    
+  </ion-list>
 </ion-content>
