@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 //引入httpclient
 import { HttpClient } from '@angular/common/http';
-
+//导入弹框
+import { AlertController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +12,16 @@ export class CommonService {
   public config: any = {
     //域名：
     //domain: 'http://localhost:5001/'http://60.12.107.219:502/api/Student/GetPageStudentsAsync
-    domain: 'http://60.12.107.219:502/'
+    //domain: 'http://192.168.0.231:800/'
+    domain: 'http://60.12.107.219:800/'
   }
 
 
   public list: any = [];
 
-  constructor(public http: HttpClient) {
-
+  constructor(
+    public http: HttpClient,    
+    private alertController: AlertController) {
   }
 
   GetList() {
@@ -41,17 +44,23 @@ export class CommonService {
   }
 
   //封装了一个post请求 
-  ajaxPost(url: String, json: Object) {    
+  ajaxPost(url: String, json: any) {    
     var api = this.config.domain + url;
-    console.log(api);
     return new Promise((resove, reject) => {
       this.http.post(api, json).subscribe((response) => {
         resove(response);
       }, (error) => {
         reject(error);
       })
-    })
+    }).catch((e)=>{this.presentAlert(JSON.stringify(e));});
   }
 
-
+  async presentAlert(msg: string) {
+    const alert = await this.alertController.create({
+      header: '提示信息',
+      message: msg,
+      buttons: ['确认']
+    });
+    await alert.present();
+  }
 }

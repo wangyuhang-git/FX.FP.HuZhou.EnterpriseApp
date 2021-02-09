@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>智慧监管平台</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-avatar class="logo">
+    <img src="assets/image/head_default.jpg">
+  </ion-avatar>
+  <ion-list>
+    <ion-item>
+      <ion-label>用户名：</ion-label>
+      <ion-input type="text" placeholder="请输入用户名" [(ngModel)]="username"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>密&emsp;码：</ion-label>
+      <ion-input type="password" placeholder="请输入密码" [(ngModel)]="password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <ion-button class="login" (click)="onLogin()" color="primary" fill="solid" size="default" type="button" expand="block"> 登&emsp;录</ion-button>
+  <ion-button (click)="onForgetpwd()" class="forgetpwd" color="primary" fill="clear" size="default" type="button"
+    expand="block"> 忘记密码</ion-button>
+</ion-content>

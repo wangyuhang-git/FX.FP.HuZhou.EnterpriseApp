@@ -1,33 +1,48 @@
 import { Component } from '@angular/core';
 
-import { CommonService } from '../services/common.service';
+import { ProjectService } from '../services/project/project.service';
+
+//导入本地缓存
+import { Storage } from '@ionic/storage';
+
+//定义常量 token
+const TOKEN_KEY = "auth-token";
 
 @Component({
   selector: 'app-tab1',
   templateUrl: 'tab1.page.html',
   styleUrls: ['tab1.page.scss'],
-  providers: [CommonService]
+  providers: [ProjectService]
 })
 export class Tab1Page {
-  
-  public list:any;
-  public object:any;
-  constructor(private commonService:CommonService) { 
-    //this.list = commonService.GetList();
+
+  public list: any;
+  public Response: any;
+
+  public LoginInfo: any;
+
+  //public ep_AccountType: string = localStorage.getItem("ep_AccountType");
+  //public ep_OrganizationCode: string = localStorage.getItem("ep_OrganizationCode");
+
+  constructor(
+    private projectService: ProjectService,
+    private storage: Storage) {
+
   }
 
-  ngOnInit():void{
+  ngOnInit(): void {
     this.getData();
   }
 
-  getData(){
-    var api='api/Student/GetPageStudentsAsync';
-    this.commonService.ajaxPost(api,{PageIndex:2,PageSize:5,SortDic:{'Age':'d'}}).then((Response)=>{
+  getData() {
+    this.storage.get(TOKEN_KEY).then(val => {
+      this.LoginInfo = JSON.parse(val);
+      this.projectService.getProjectList(this.LoginInfo.AccountType, this.LoginInfo.OrganizationCode).then((Response) => {
         //this.list=Response;  
-        this.object = Response;      
-        this.list=this.object.rows;
-        console.log(this.list);
-    })
+        this.Response = Response;
+        this.list = this.Response.Data;
+      })
+    });
   }
 
 }
