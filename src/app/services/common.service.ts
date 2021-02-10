@@ -12,8 +12,8 @@ export class CommonService {
   public config: any = {
     //域名：
     //domain: 'http://localhost:5001/'http://60.12.107.219:502/api/Student/GetPageStudentsAsync
-    //domain: 'http://192.168.0.231:800/'
-    domain: 'http://60.12.107.219:800/'
+    domain: 'http://192.168.0.231:800/'
+    //domain: 'http://60.12.107.219:800/'
   }
 
 

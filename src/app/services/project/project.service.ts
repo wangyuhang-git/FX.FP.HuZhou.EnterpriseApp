@@ -29,7 +29,7 @@ export class ProjectService {
     var api = 'api/Project';
    return this.httpService.ajaxPost(api, {
       'PageIndex': 1,
-      'PageSize': 5,
+      'PageSize': 10,
       'accountType': accountType,
       'organizationCode': organizationCode
     })

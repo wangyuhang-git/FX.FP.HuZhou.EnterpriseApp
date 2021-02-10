@@ -40,7 +40,7 @@ export class Tab1Page {
       this.projectService.getProjectList(this.LoginInfo.AccountType, this.LoginInfo.OrganizationCode).then((Response) => {
         //this.list=Response;  
         this.Response = Response;
-        this.list = this.Response.Data;
+        this.list = this.Response.rows;
       })
     });
   }
