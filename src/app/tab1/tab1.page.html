@@ -12,19 +12,27 @@
       <ion-title size="large">项目清单</ion-title>
     </ion-toolbar>
   </ion-header>
-
   <!-- <app-explore-container name="Tab 1 page"></app-explore-container> -->
   <ion-list>
-    <ion-item *ngFor="let item of list">
-      <ion-label>{{item.SEGMENTNAME}}</ion-label>
+    <ion-item *ngFor="let item of list" (click)="onClick(item)">
+      <ion-avatar slot="start">
+        <ion-icon name="logo-buffer"></ion-icon>
+      </ion-avatar>
+      <ion-label>
+        <h2>{{item.SEGMENTNAME}}</h2>
+        <p>{{item.SEGMENTADDRESSAREA}}&nbsp;&nbsp;&nbsp;&nbsp;{{item.CONSTRUCTPERMITNUM}}</p>
+      </ion-label>
     </ion-item>
-    
   </ion-list>
-
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
-    <ion-infinite-scroll-content
-      loadingSpinner="bubbles"
-      loadingText="Loading more data...">
+    <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="数据加载中...">
     </ion-infinite-scroll-content>
   </ion-infinite-scroll>
+  <div [hidden]="!hasMore">
+    <ion-row>
+      <ion-col class="nodata" text-center>
+        没有更多内容啦
+      </ion-col>
+    </ion-row>
+  </div>
 </ion-content>

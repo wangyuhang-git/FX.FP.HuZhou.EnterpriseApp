@@ -13,7 +13,11 @@ const routes: Routes = [
     path: 'tabs',
     //canActivate: [AuthGuardService],//设置路由守卫，添加后导致登录要点两次？？？
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule)
+  },  {
+    path: 'project-detail',
+    loadChildren: () => import('./business/project/project-detail/project-detail.module').then( m => m.ProjectDetailPageModule)
   }
+
 ];
 @NgModule({
   imports: [

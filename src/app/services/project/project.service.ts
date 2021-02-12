@@ -24,12 +24,12 @@ export class ProjectService {
 
 
 
-  getProjectList(accountType: string, organizationCode: string) {
+  getProjectList(pageIndex: number, pageSize: number, accountType: string, organizationCode: string) {
     //获取所属项目清单
     var api = 'api/Project';
-   return this.httpService.ajaxPost(api, {
-      'PageIndex': 1,
-      'PageSize': 10,
+    return this.httpService.ajaxPost(api, {
+      'PageIndex': pageIndex,
+      'PageSize': pageSize,
       'accountType': accountType,
       'organizationCode': organizationCode
     })
