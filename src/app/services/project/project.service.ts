@@ -24,14 +24,15 @@ export class ProjectService {
 
 
 
-  getProjectList(pageIndex: number, pageSize: number, accountType: string, organizationCode: string) {
+  getProjectList(pageIndex: number, pageSize: number, accountType: string, organizationCode: string, searchDic: any) {
     //获取所属项目清单
     var api = 'api/Project';
     return this.httpService.ajaxPost(api, {
       'PageIndex': pageIndex,
       'PageSize': pageSize,
       'accountType': accountType,
-      'organizationCode': organizationCode
+      'organizationCode': organizationCode,
+      'SearchDic': searchDic
     })
   }
 

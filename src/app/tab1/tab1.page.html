@@ -24,6 +24,7 @@
       </ion-label>
     </ion-item>
   </ion-list>
+  <!--上滑加载更多数据 start-->
   <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
     <ion-infinite-scroll-content loadingSpinner="bubbles" loadingText="数据加载中...">
     </ion-infinite-scroll-content>
@@ -35,4 +36,13 @@
       </ion-col>
     </ion-row>
   </div>
+  <!--上滑加载更多数据 end-->
+
+  <!--使用浮动按钮组件fab和自定义模态弹框modal组件实现高级查询 start-->
+  <ion-fab horizontal="end" vertical="bottom" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add" (click)="showModal()"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+  <!--使用浮动按钮组件fab和自定义模态弹框modal组件实现高级查询 end-->
 </ion-content>

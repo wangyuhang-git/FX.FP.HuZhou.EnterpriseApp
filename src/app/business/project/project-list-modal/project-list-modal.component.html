@@ -1,0 +1,37 @@
+<ion-header translucent>
+  <ion-toolbar>
+    <ion-title>
+      高级查询
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal('close')">
+        关闭
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <ion-item>
+    <ion-label>关键字：</ion-label>
+    <ion-input type="text" [(ngModel)]="keyWord"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>项目名称：</ion-label>
+    <ion-input [(ngModel)]="SEGMENTNAME"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>施工许可证号码：</ion-label>
+    <ion-input [(ngModel)]="CONSTRUCTPERMITNUM"></ion-input>
+  </ion-item>
+  <ion-item>
+    <ion-label>工程区域：</ion-label>
+    <ion-select [(ngModel)]="SEGMENTADDRESSAREA" value="" multiple="false" ok-text="确定" cancel-text="取消"
+      placeholder="请选择">
+      <ion-select-option value="">全部</ion-select-option>
+      <ion-select-option value="peperoni">Peperoni</ion-select-option>
+      <ion-select-option value="hawaii">Hawaii</ion-select-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-button expand="block" color="primary" (click)="dismissModal('search')">确定</ion-button>
+</ion-content>
