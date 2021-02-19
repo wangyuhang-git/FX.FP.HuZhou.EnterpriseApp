@@ -1,0 +1,33 @@
+<ion-header>
+  <ion-toolbar>
+    <Navbar [icon]="icon" [mode]="'light'" (onLeftClick)="onLeftClick()">
+      智慧监管云平台
+    </Navbar>
+  </ion-toolbar>
+  <ng-template #icon>
+    <Icon [type]="'left'"></Icon>
+  </ng-template>
+</ion-header>
+
+<ion-content>
+  <div class="sub-title">
+    <p><label class="w6-5">项目名称：</label>{{projectInfo.SEGMENTNAME}}</p>
+    <p>
+      <label class="w6-5">建设单位：</label>{{projectInfo.BUILDUNITNAME}}
+    </p>
+    <p><label>项目负责人：</label>{{projectInfo.BUILDUNITPRINCIPAL}}</p>
+    <p>
+      <label class="w6-5">施工单位：</label>{{projectInfo.CONSTRUCTUNITNAME}}
+    </p>
+    <p>
+      <label class="w6-5">项目经理：</label>{{projectInfo.PROJECTMANAGER}}
+    </p>
+    <p>
+      <label class="w6-5">监理单位：</label>{{projectInfo.SUPERVISEUNITNAME}}
+    </p>
+    <p>
+      <label class="w6-5">项目总监：</label>{{projectInfo.MAJORDOMO}}
+    </p>
+  </div>
+  <Grid [data]="navList" [hasLine]="false" [columnNum]="3" (onClick)="click($event)"></Grid>
+</ion-content>

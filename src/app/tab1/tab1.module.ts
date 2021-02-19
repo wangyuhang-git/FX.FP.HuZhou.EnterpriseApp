@@ -6,6 +6,8 @@ import { Tab1Page } from './tab1.page';
 import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
 
 import { Tab1PageRoutingModule } from './tab1-routing.module';
+
+
 //导入自定义模态弹框组件（此次必须，不然模态弹框中没办法使用双向数据绑定）
 import { ProjectListModalComponent } from '../business/project/project-list-modal/project-list-modal.component';
 
@@ -18,6 +20,6 @@ import { ProjectListModalComponent } from '../business/project/project-list-moda
     ExploreContainerComponentModule,
     Tab1PageRoutingModule
   ],
-  declarations: [Tab1Page,ProjectListModalComponent]
+  declarations: [Tab1Page, ProjectListModalComponent]
 })
 export class Tab1PageModule { }

@@ -4,10 +4,11 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { ProjectDetailPageRoutingModule } from './project-detail-routing.module';
+import { ProjectNavPageRoutingModule } from './project-nav-routing.module';
 
-import { ProjectDetailPage } from './project-detail.page';
+import { ProjectNavPage } from './project-nav.page';
 
+//导入Zorro组件
 import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
 
 @NgModule({
@@ -15,9 +16,9 @@ import { NgZorroAntdMobileModule } from 'ng-zorro-antd-mobile';
     CommonModule,
     FormsModule,
     IonicModule,
-    ProjectDetailPageRoutingModule,
+    ProjectNavPageRoutingModule,
     NgZorroAntdMobileModule
   ],
-  declarations: [ProjectDetailPage]
+  declarations: [ProjectNavPage]
 })
-export class ProjectDetailPageModule {}
+export class ProjectNavPageModule { }

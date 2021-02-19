@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { IonInfiniteScroll, ModalController, IonRouterOutlet } from '@ionic/angular';
 import { ProjectService } from '../services/project/project.service';
 import { ProjectListModalComponent } from '../business/project/project-list-modal/project-list-modal.component';
-
 //导入本地缓存
 import { Storage } from '@ionic/storage';
 
@@ -82,7 +81,7 @@ export class Tab1Page {
 
   onClick(projectInfo: any) {
     //console.log(projectInfo);
-    this.router.navigate(['project-detail'], {
+    this.router.navigate(['project-nav'], {
       queryParams: {
         "projectInfo": JSON.stringify(projectInfo)
       }
@@ -104,7 +103,7 @@ export class Tab1Page {
       if (res.data.SearchDic) {
         this.searchDic = res.data.SearchDic;
         this.currentPage = 1;
-        //console.log(this.SearchDic);
+        //console.log(this.searchDic);
         this.getData(this.currentPage, null);
       }
     });

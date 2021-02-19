@@ -16,6 +16,10 @@ const routes: Routes = [
   },  {
     path: 'project-detail',
     loadChildren: () => import('./business/project/project-detail/project-detail.module').then( m => m.ProjectDetailPageModule)
+  },
+  {
+    path: 'project-nav',
+    loadChildren: () => import('./business/project/project-nav/project-nav.module').then( m => m.ProjectNavPageModule)
   }
 
 ];

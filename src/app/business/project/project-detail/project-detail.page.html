@@ -1,12 +1,38 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/tabs/tab1" text="返回"></ion-back-button>
-    </ion-buttons>
-    <ion-title>项目详情</ion-title>
+    <Navbar [icon]="icon" [mode]="'light'" (onLeftClick)="onLeftClick()">
+      项目详情
+    </Navbar>
+  </ion-toolbar>
+  <ng-template #icon>
+    <Icon [type]="'left'"></Icon>
+  </ng-template>
+  <!-- <ion-toolbar>
+    <ion-segment color="primary" value="projectSurvey" [(ngModel)]="change">
+      <ion-segment-button value="projectSurvey">
+        <ion-label>项目概况</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="dutySubject">
+        <ion-label>责任主体</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>-->
+  <ion-toolbar>
+    <WingBlank [size]="'lg'" class="sc-example">
+      <SegmentedControl [selectedIndex]=0 style="height: 40px; width: 100%" [tintColor]="'#6495ed'" [values]="['项目概况', '责任主体']"
+        (onChange)="choose($event)">
+      </SegmentedControl>
+    </WingBlank>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-
+  <div [ngSwitch]="change">
+    <div *ngSwitchCase="'项目概况'">
+      项目概况
+    </div>
+    <div *ngSwitchCase="'责任主体'">
+      责任主体
+    </div>
+  </div>
 </ion-content>
